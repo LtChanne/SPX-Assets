@@ -9,6 +9,7 @@
         :root {
             --bg: #0b0c10;
             --surface: #1f2833;
+            --surface-hover: #2d3845;
             --accent: #c5a059; /* Saturn gold */
             --text: #ffffff;
             --text-muted: #c5c6c7;
@@ -47,14 +48,23 @@
         .container {
             max-width: 1000px;
             width: 90%;
-            margin-bottom: 5rem;
+            margin-bottom: 3rem;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
 
         .card {
@@ -72,7 +82,6 @@
             border-color: var(--accent);
         }
 
-        /* Displays image if you have one, or falls back to stylized space background */
         .card-preview {
             width: 100%;
             height: 180px;
@@ -108,7 +117,7 @@
             font-size: 0.95rem;
             line-height: 1.5;
             margin-bottom: 1.5rem;
-            flex-grow: 1; /* Keeps buttons aligned even if text lengths differ */
+            flex-grow: 1;
         }
 
         .btn {
@@ -126,6 +135,69 @@
 
         .btn:hover {
             opacity: 0.9;
+        }
+
+        /* Support Section Layout */
+        .support-channels {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .support-channels {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* FAQ Dropdowns style */
+        .faq-item {
+            background-color: var(--surface);
+            border: 1px solid #2f3b4c;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            background-color: var(--surface-hover);
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out, padding 0.2s ease-out;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Open state for FAQ handled by simple JS */
+        .faq-item.active .faq-answer {
+            padding: 0 1.2rem 1.2rem 1.2rem;
+            max-height: 200px; /* Big enough to fit text */
+            border-top: 1px solid #2f3b4c;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-toggle {
+            transition: transform 0.2s;
+            display: inline-block;
+            color: var(--accent);
         }
 
         footer {
@@ -147,18 +219,19 @@
         <p>High-performance tools and assets for Unity developers.</p>
     </header>
 
+    <!-- PRODUCTS SECTION -->
     <div class="container">
+        <h2 class="section-title">Our Unity Assets</h2>
         <div class="grid">
             
             <!-- PRODUCT 1 -->
             <div class="card">
                 <div class="card-preview">
-                    <!-- OPTIONAL: Replace 'placeholder.png' with your actual image file name later -->
                     <img src="placeholder.png" alt="Product 1 Preview" onerror="this.style.display='none';">
                     <span>[ No Image Loaded ]</span>
                 </div>
                 <div class="card-content">
-                    <h3 class="card-title"></h3>
+                    <h3 class="card-title">Product Name Here</h3>
                     <p class="card-desc">Put your asset description here. Explain what your script, tool, or art pack does and how it helps game developers save time.</p>
                     <a href="PUT_UNITY_STORE_LINK_HERE" class="btn">View on Asset Store</a>
                 </div>
@@ -206,9 +279,71 @@
         </div>
     </div>
 
+    <!-- NEW: SUPPORT SECTION -->
+    <div class="container">
+        <h2 class="section-title">Support & Community</h2>
+        
+        <div class="support-channels">
+            <!-- Discord Support Card -->
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="card-title">💬 Discord Community</h3>
+                    <p class="card-desc">Need live troubleshooting or want to submit a feature request? Join the developer server to get help straight from us and hang out with other devs.</p>
+                    <!-- CHANGE ME: Swap # with your real Discord invite link -->
+                    <a href="#" class="btn" style="background-color: #5865F2; color: #fff;">Join Discord Server</a>
+                </div>
+            </div>
+
+            <!-- Email Support Card -->
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="card-title">✉️ Direct Support</h3>
+                    <p class="card-desc">For commercial licensing inquiries, bug reporting templates, or private account concerns, drop us an email anytime.</p>
+                    <!-- CHANGE ME: Swap your email here -->
+                    <a href="mailto:support@yourdomain.com" class="btn">Contact Support Email</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ ACCORDIONS -->
+        <h2 class="section-title" style="font-size: 1.5rem; margin-top: 3rem;">Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">How do I import the assets? <span class="faq-toggle">+</span></div>
+            <div class="faq-answer">
+                Open your Unity project, navigate to <strong>Window > Package Manager</strong>, select "My Assets" from the dropdown, find your purchase, and click Download then Import.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Which Unity versions are supported? <span class="faq-toggle">+</span></div>
+            <div class="faq-answer">
+                Most of our tools support Unity 2022.3 LTS and newer (including Unity 6). Please check the specific requirements section on individual asset store product descriptions.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I use these in commercial games? <span class="faq-toggle">+</span></div>
+            <div class="faq-answer">
+                Yes, absolutely! All purchases are governed under the standard Unity Asset Store EULA license, meaning you can use them in unlimited commercial or free projects.
+            </div>
+        </div>
+
+    </div>
+
     <footer>
         <p>&copy; 2026 Saturnyk Systems. Powered by Vercel.</p>
     </footer>
+
+    <!-- Simple JavaScript to make the FAQ items expand smoothly -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
