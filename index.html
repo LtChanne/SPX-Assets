@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saturn Dev | Unity Assets</title>
+    <!-- CHANGE ME: Your browser tab title -->
+    <title>SPX Assets | Unity Asset Store Storefront</title>
     <style>
         :root {
             --bg: #0b0c10;
@@ -62,6 +63,8 @@
             overflow: hidden;
             border: 1px solid #2f3b4c;
             transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
@@ -69,19 +72,30 @@
             border-color: var(--accent);
         }
 
+        /* Displays image if you have one, or falls back to stylized space background */
         .card-preview {
             width: 100%;
             height: 180px;
-            background: linear-gradient(135deg, #1f2833, #0b0c10);
+            background: linear-gradient(135deg, #141a22, #0b0c10);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-muted);
             font-weight: bold;
+            overflow: hidden;
+        }
+
+        .card-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .card-content {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .card-title {
@@ -94,6 +108,7 @@
             font-size: 0.95rem;
             line-height: 1.5;
             margin-bottom: 1.5rem;
+            flex-grow: 1; /* Keeps buttons aligned even if text lengths differ */
         }
 
         .btn {
@@ -105,6 +120,7 @@
             border-radius: 6px;
             font-weight: bold;
             font-size: 0.9rem;
+            text-align: center;
             transition: opacity 0.2s;
         }
 
@@ -119,13 +135,14 @@
             font-size: 0.85rem;
             border-top: 1px solid #1f2833;
             width: 100%;
+            margin-top: auto;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <!-- Replace with your chosen Saturn name -->
+        <!-- CHANGE ME: Company Main Title -->
         <h1>SATURNYK SYSTEMS</h1>
         <p>High-performance tools and assets for Unity developers.</p>
     </header>
@@ -133,23 +150,56 @@
     <div class="container">
         <div class="grid">
             
-            <!-- Asset Card 1 -->
+            <!-- PRODUCT 1 -->
             <div class="card">
-                <div class="card-preview">Asset Key Art / Image</div>
+                <div class="card-preview">
+                    <!-- OPTIONAL: Replace 'placeholder.png' with your actual image file name later -->
+                    <img src="placeholder.png" alt="Product 1 Preview" onerror="this.style.display='none';">
+                    <span>[ No Image Loaded ]</span>
+                </div>
                 <div class="card-content">
-                    <h3 class="card-title">Project Protection Tool</h3>
-                    <p class="card-desc">Keep your credits secure. Automatically locks or alters project functions if author attribution is tampered with or removed.</p>
-                    <a href="#" class="btn">View on Asset Store</a>
+                    <h3 class="card-title"></h3>
+                    <p class="card-desc">Put your asset description here. Explain what your script, tool, or art pack does and how it helps game developers save time.</p>
+                    <a href="PUT_UNITY_STORE_LINK_HERE" class="btn">View on Asset Store</a>
                 </div>
             </div>
 
-            <!-- Asset Card 2 (Placeholder for your next asset) -->
+            <!-- PRODUCT 2 -->
             <div class="card">
-                <div class="card-preview">Asset Key Art / Image</div>
+                <div class="card-preview">
+                    <img src="placeholder.png" alt="Product 2 Preview" onerror="this.style.display='none';">
+                    <span>[ No Image Loaded ]</span>
+                </div>
                 <div class="card-content">
-                    <h3 class="card-title">Coming Soon</h3>
-                    <p class="card-desc">An upcoming system or utility built to streamline your Unity development workflow loop.</p>
-                    <a href="#" class="btn" style="background-color: #333; color: #888; pointer-events: none;">In Development</a>
+                    <h3 class="card-title">Product Name Here</h3>
+                    <p class="card-desc">Put your asset description here. Explain what your script, tool, or art pack does and how it helps game developers save time.</p>
+                    <a href="PUT_UNITY_STORE_LINK_HERE" class="btn">View on Asset Store</a>
+                </div>
+            </div>
+
+            <!-- PRODUCT 3 -->
+            <div class="card">
+                <div class="card-preview">
+                    <img src="placeholder.png" alt="Product 3 Preview" onerror="this.style.display='none';">
+                    <span>[ No Image Loaded ]</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Product Name Here</h3>
+                    <p class="card-desc">Put your asset description here. Explain what your script, tool, or art pack does and how it helps game developers save time.</p>
+                    <a href="PUT_UNITY_STORE_LINK_HERE" class="btn">View on Asset Store</a>
+                </div>
+            </div>
+
+            <!-- PRODUCT 4 -->
+            <div class="card">
+                <div class="card-preview">
+                    <img src="placeholder.png" alt="Product 4 Preview" onerror="this.style.display='none';">
+                    <span>[ No Image Loaded ]</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Product Name Here</h3>
+                    <p class="card-desc">Put your asset description here. Explain what your script, tool, or art pack does and how it helps game developers save time.</p>
+                    <a href="PUT_UNITY_STORE_LINK_HERE" class="btn">View on Asset Store</a>
                 </div>
             </div>
 
@@ -157,7 +207,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Saturnyk Systems. Built with Vercel.</p>
+        <p>&copy; 2026 Saturnyk Systems. Powered by Vercel.</p>
     </footer>
 
 </body>
